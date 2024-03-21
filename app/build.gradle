@@ -1,0 +1,100 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.plugin.serialization'
+}
+
+android {
+    namespace 'com.tonysheng.share'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.tonysheng.share"
+        minSdk 17
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    aaptOptions {
+        noCompress "apk"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+//    packagingOptions {
+//        exclude 'META-INF/kotlinx-io.kotlin_module'
+//        exclude 'META-INF/atomicfu.kotlin_module'
+//        exclude 'META-INF/INDEX.LIST'
+//        exclude 'META-INF/kotlinx-coroutines-io.kotlin_module'
+//        exclude 'META-INF/kotlinx-coroutines-core.kotlin_module'
+//    }
+    packagingOptions {
+//        exclude 'META-INF/kotlinx-io.kotlin_module'
+//        exclude 'META-INF/atomicfu.kotlin_module'
+//        exclude 'META-INF/ktor-http.kotlin_module'
+//        exclude 'META-INF/ktor-utils.kotlin_module'
+//        exclude 'META-INF/ktor-client-core.kotlin_module'
+//        exclude 'META-INF/kotlinx-coroutines-io.kotlin_module'
+//        exclude 'META-INF/kotlinx-coroutines-core.kotlin_module'
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/io.netty.versions.properties'
+    }
+
+
+
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+
+    //Server
+    implementation "io.ktor:ktor-server-netty:2.0.1"
+    implementation 'io.ktor:ktor-server-content-negotiation-jvm:2.1.1'
+    // Ktor的核心包
+//    implementation "io.ktor:ktor-server-core:2.0.1"
+//// 供Ktor使用的引擎包，另外有Jetty, Tomcat, CIO可用
+//    implementation "io.ktor:ktor-server-netty:2.0.1"
+//// 用於印出Request及Response的log用
+//    implementation "io.ktor:ktor-server-call-logging:2.0.1"
+//// 用於支援PartialContent用
+//    implementation "io.ktor:ktor-server-partial-content:2.0.1"
+//// 用於支援CORS用
+//    implementation "io.ktor:ktor-server-cors:2.0.1"
+//// 用於回傳客製html用
+//    implementation "io.ktor:ktor-server-html-builder:2.0.1"
+
+//    implementation "io.ktor:ktor-features:2.2.1"
+
+    //client
+    implementation 'io.ktor:ktor-client-android:2.2.1'
+
+    implementation("io.ktor:ktor-client-content-negotiation:2.2.1")
+
+// 用于设置JSON序列化和逆序列化, 向多平台项目推荐.
+    implementation 'io.ktor:ktor-client-serialization:1.5.0'
+    // kotlinx.serialization, 用于实体序列化
+    implementation("io.ktor:ktor-serialization-kotlinx-json:2.2.1")
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3"
+
+// 用于打印HTTP请求
+//    implementation 'io.ktor:ktor-client-logging-jvm:1.5.0'
+
+}
