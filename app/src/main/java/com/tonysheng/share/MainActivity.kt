@@ -82,7 +82,9 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onFailed(code: Int, message: String) {
-                    AlertDialog.Builder(this@MainActivity).setMessage("faild code$code message $message").show()
+                    GlobalScope.launch(Dispatchers.Main) {
+                        AlertDialog.Builder(this@MainActivity).setMessage("faild code$code message $message").show()
+                    }
                 }
             }
         }
