@@ -45,10 +45,9 @@ object Server {
                     // 在所有请求处理完成后执行
                     Log.d(TAG, "请求上来了--- ${call.request.uri}  ${call.request.httpMethod}")
                 }
-
-                get("/call") {
-                    Dispatcher.dispatch(call)
-                }
+                // get("/call") {
+                //     Dispatcher.dispatch(call)
+                // }
                 post("/call")
                 {
                     Dispatcher.dispatch(call)

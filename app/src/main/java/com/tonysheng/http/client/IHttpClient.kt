@@ -1,6 +1,7 @@
 package com.tonysheng.http.client
 
 import com.tonysheng.http.client.request.AbsRequest
+import com.tonysheng.http.client.request.FileUploadRequest
 
 /**
  * CloudView limited 2023 copyright.
@@ -14,4 +15,6 @@ import com.tonysheng.http.client.request.AbsRequest
 interface IHttpClient {
 
     fun send(absRequest: AbsRequest)
+
+    fun upload(fileUploadRequest: FileUploadRequest)
 }

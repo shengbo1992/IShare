@@ -11,6 +11,7 @@ package com.tonysheng.http.client
  */
 object ConstConfig {
     val funcServerUrl="http://localhost:8080/call"
+    val uploadServerUrl="http://localhost:8080/upload"
 
     val head_funcName="funcName"
 }
